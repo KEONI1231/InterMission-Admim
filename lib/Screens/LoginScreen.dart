@@ -2,13 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intermission_admin/Components/CustomButton.dart';
-import 'package:intermission_admin/Screens/HomeScreen.dart';
+import 'package:intermission_admin/Screens/EntryMenuScreen/EntryMenuSelectScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:intermission_admin/main.dart';
 import '../Components/CircularProgress.dart';
 import '../Components/CustomTextField.dart';
-import 'package:window_manager/window_manager.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -42,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 150,
             ),
             Form(
@@ -58,21 +57,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 56,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 56,
                     ),
                     CustomTextField(
                         textInputType: TextInputType.text,
                         Controller: _idTextController,
                         label: 'ID'),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     CustomTextField(
                         textInputType: TextInputType.visiblePassword,
                         Controller: _pwTextController,
                         label: 'PW'),
-                    SizedBox(
+                    const SizedBox(
                       height: 80,
                     ),
                     CustomButton(btnText: '로그인', onPressed: onPressed)
@@ -92,10 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
     if (formKey.currentState!.validate()) {
-      Navigator.of(context)
-              .push(MaterialPageRoute(builder: (BuildContext context) {
-            return HomeScreen();
-          }));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
+        return HomeScreen();
+      }));
 
       // try {
       //   print(_idTextController.text.toString());
