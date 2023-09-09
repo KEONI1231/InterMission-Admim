@@ -44,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 150,
             ),
+
             Form(
               key: formKey,
               child: Container(
@@ -56,6 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const SizedBox(
                       height: 56,
+                    ),
+                    Image.asset(
+                      'assets/img/main_logo.png',
+                      width: 200,
                     ),
                     const SizedBox(
                       height: 56,
@@ -91,9 +96,13 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
-        return HomeScreen();
-      }));
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (BuildContext context) {
+          return HomeScreen();
+        }));
+      //print(NaviDetermine.rightArrowStatus);
+      //Navigator.of(context).pushNamed('/entryMenuScreen');
+
 
       // try {
       //   print(_idTextController.text.toString());

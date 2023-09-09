@@ -4,46 +4,46 @@ import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScre
 import '../../Components/CustomIconBtn.dart';
 
 import '../../Components/ContentInputForm.dart';
-import '../../Components/CustomRearchRegisterBtn.dart';
+
+import '../../Components/CustomRearchRegisterBtn_2.dart';
 import '../../Components/TitleInputForm.dart';
 
-class ResearchHomeScreen extends StatefulWidget {
-  const ResearchHomeScreen({Key? key}) : super(key: key);
+class ResearchHomeScreen_2 extends StatefulWidget {
+  const ResearchHomeScreen_2({Key? key}) : super(key: key);
 
   @override
-  State<ResearchHomeScreen> createState() => _ResearchHomeScreenState();
+  State<ResearchHomeScreen_2> createState() => _ResearchHomeScreen_2State();
 }
 
-class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
+class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
   @override
-  final TextEditingController titleTextController = TextEditingController();
-  final TextEditingController subTitleTextConroller = TextEditingController();
-  final TextEditingController dueDateTextController = TextEditingController();
-  final TextEditingController aboutConsumeTimeTextController =
-      TextEditingController();
-  final TextEditingController ageTextController = TextEditingController();
-  final TextEditingController detailContentTextController =
-      TextEditingController();
-  final TextEditingController typeTextController = TextEditingController();
-  final TextEditingController onOffTextController = TextEditingController();
-  final TextEditingController creditTextController = TextEditingController();
+  final TextEditingController clientNameTextController = TextEditingController();
+  final TextEditingController emailTextConroller = TextEditingController();
+  final TextEditingController clientJobTextController = TextEditingController();
+  final TextEditingController clientJobEtcTextController =
+  TextEditingController();
+  final TextEditingController companyNameTextController = TextEditingController();
+
+  final TextEditingController requireNumberTextController = TextEditingController();
+  final TextEditingController etcAskTextController = TextEditingController();
+  final TextEditingController clientPhoneTextController = TextEditingController();
 
   void initState() {
     super.initState();
 
-    titleTextController.addListener(_updateState);
-    subTitleTextConroller.addListener(_updateState);
-    dueDateTextController.addListener(_updateState);
-    aboutConsumeTimeTextController.addListener(_updateState);
-    ageTextController.addListener(_updateState);
-    detailContentTextController.addListener(_updateState);
-    typeTextController.addListener(_updateState);
-    onOffTextController.addListener(_updateState);
-    creditTextController.addListener(_updateState);
+    clientJobEtcTextController.addListener(_updateState);
+    clientNameTextController.addListener(_updateState);
+    clientJobTextController.addListener(_updateState);
+    emailTextConroller.addListener(_updateState);
+    companyNameTextController.addListener(_updateState);
+    requireNumberTextController.addListener(_updateState);
+    etcAskTextController.addListener(_updateState);
+    clientPhoneTextController.addListener(_updateState);
+
   }
 
-  final researchTypeList = ["인터뷰", "설문", "테스터"];
-  var selectedType = "인터뷰";
+  final genderTypeList = ["남성", "여성", "상관없음"];
+  var selectedGenderType = "남성";
   final onOffTypeList = ["온라인", "오프라인"];
   var seletedOnOffType = "온라인";
 
@@ -91,7 +91,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                         )
                       ],
                     ),
-                    Text('1 / 2',
+                    Text('2 / 2',
                         style: TextStyle(fontSize: 24, color: Colors.grey[700]))
                   ],
                 ),
@@ -108,7 +108,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        '리서치 제목',
+                        '의뢰자명',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -119,7 +119,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     ),
                     TitleInputText(
                       hintText: hintText,
-                      textController: titleTextController,
+                      textController: clientNameTextController,
                     )
                   ],
                 ),
@@ -136,7 +136,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        '리서치 부제목',
+                        '이메일',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -147,7 +147,63 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     ),
                     TitleInputText(
                       hintText: hintText,
-                      textController: subTitleTextConroller,
+                      textController: emailTextConroller,
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 2.5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        '의뢰자 직무',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    TitleInputText(
+                      hintText: hintText,
+                      textController: clientJobTextController,
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 2.5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        '의뢰자 직무 기타',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    TitleInputText(
+                      hintText: hintText,
+                      textController: clientJobEtcTextController,
                     )
                   ],
                 ),
@@ -164,7 +220,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        '마감일',
+                        '회사명',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -175,7 +231,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     ),
                     TitleInputText(
                       hintText: hintText,
-                      textController: dueDateTextController,
+                      textController: companyNameTextController,
                     )
                   ],
                 ),
@@ -189,137 +245,56 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        '예상 소요 시간(분)',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    TitleInputText(
-                      hintText: hintText,
-                      textController: aboutConsumeTimeTextController,
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 2.5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        '참여 가능 연령대',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    TitleInputText(
-                      hintText: hintText,
-                      textController: ageTextController,
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 2.5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Text(
-                        '리서치 상세내용',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    ContentInputText(
-                      //hintText: hintText,
-                      textController: detailContentTextController,
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 2.5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '리서치 종류',
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Text(
+                            '타겟 성별',
                             style: TextStyle(
                               fontSize: 20,
                             ),
                           ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Container(
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left : 4.0),
+                          child: Container(
                             width: MediaQuery.of(context).size.width / 2.53,
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10.0, vertical: 5.0),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(4.0),
                               border:
-                                  Border.all(color: Colors.grey, width: 1.0),
+                              Border.all(color: Colors.grey, width: 1.0),
                             ),
                             child: DropdownButtonHideUnderline(
                               // Underline을 숨깁니다.
                               child: DropdownButton<String>(
-                                value: selectedType,
+                                value: selectedGenderType,
                                 isExpanded: true,
                                 // DropdownButton이 Container의 전체 너비를 사용하도록 설정합니다.
-                                items: researchTypeList
+                                items: genderTypeList
                                     .map<DropdownMenuItem<String>>(
                                         (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16.0)),
-                                  );
-                                }).toList(),
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 16.0)),
+                                      );
+                                    }).toList(),
                                 onChanged: (String? newValue) {
                                   if (newValue != null) {
                                     // newValue가 null이 아닌 경우에만 상태를 업데이트합니다.
                                     setState(() {
-                                      selectedType = newValue;
-                                      print(selectedType);
+                                      selectedGenderType = newValue;
+                                      print(selectedGenderType);
                                     });
                                   }
                                 },
@@ -331,9 +306,9 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                                 dropdownColor: Colors.white, // 드롭다운 항목의 배경색 변경
                               ),
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     )
                   ],
                 ),
@@ -347,61 +322,61 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '온/오프라인 여부',
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left : 4.0),
+                          child: Text(
+                            '모집 인원',
                             style: TextStyle(
                               fontSize: 20,
                             ),
                           ),
-                          SizedBox(
-                            height: 8,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        TitleInputText(
+                          hintText: hintText,
+                          textController: requireNumberTextController,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 2.5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left : 4.0),
+                          child: Text(
+                            '기타 요청 사항',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 2.53,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
-                              border:
-                                  Border.all(color: Colors.grey, width: 1.0),
-                            ),
-                            child: DropdownButtonHideUnderline(
-                              // Underline을 숨깁니다.
-                              child: DropdownButton<String>(
-                                value: seletedOnOffType,
-                                isExpanded: false,
-                                // DropdownButton이 Container의 전체 너비를 사용하도록 설정합니다.
-                                items: onOffTypeList.map((value) {
-                                  return DropdownMenuItem(
-                                    value: value,
-                                    child: Text(value,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16.0)),
-                                  );
-                                }).toList(),
-                                onChanged: (value) {
-                                  setState(() {
-                                    seletedOnOffType = value.toString();
-                                  });
-                                },
-                                icon: Icon(Icons.arrow_drop_down,
-                                    color: Colors.grey),
-                                // 드롭다운 아이콘의 색상 변경
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 16.0),
-                                dropdownColor: Colors.white, // 드롭다운 항목의 배경색 변경
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        ContentInputText(
+
+                          textController: etcAskTextController,
+                        )
+                      ],
                     )
                   ],
                 ),
@@ -418,7 +393,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 4.0),
                       child: Text(
-                        '리서치 보상',
+                        '의뢰자 전화번호',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -429,7 +404,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                     ),
                     TitleInputText(
                       hintText: hintText,
-                      textController: creditTextController,
+                      textController: clientPhoneTextController,
                     )
                   ],
                 ),
@@ -440,13 +415,14 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
               CustomResearchRegisterBtn(
                 btnText: '다음',
                 onPressed: onPressed,
-                content1: titleTextController.text,
-                content2: subTitleTextConroller.text,
-                content3: dueDateTextController.text,
-                content4: aboutConsumeTimeTextController.text,
-                content5: ageTextController.text,
-                content6: detailContentTextController.text,
-                content7: creditTextController.text,
+                content1: clientNameTextController.text,
+                content2: clientJobEtcTextController.text,
+                content3: clientJobTextController.text,
+                content4: clientPhoneTextController.text,
+                content5: companyNameTextController.text,
+                content6: etcAskTextController.text,
+                content7: requireNumberTextController.text,
+                content8: emailTextConroller.text,
               ),
               const SizedBox(
                 height: 32,
@@ -459,9 +435,8 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
   }
 
   void onPressed() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      return ResearchHomeScreen_2();
-    }));
+    for(int i =0; i < 2; i++) {
+      Navigator.pop(context);
+    }
   }
 }
