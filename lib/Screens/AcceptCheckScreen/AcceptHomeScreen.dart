@@ -66,10 +66,29 @@ class AcceptHomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
+                            Row(
+                              children: [
+                                Text(
+                                  '유저가 ',
+                                  style: ts,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  '청년 마인트케어',
+                                  style: ts.copyWith(color: purpleTextColor),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  ' 리서치에',
+                                  style: ts,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  ' 수락했습니다.',
+                                  style: ts,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
                             ),
                             SizedBox(height: 8),
                             Text(
@@ -84,328 +103,7 @@ class AcceptHomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ), SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ), SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
-                      ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '유저가 청년 마인트케어 리서치에 수락했습니다.',
-                              style: ts,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+
             ],
           ),
         ),

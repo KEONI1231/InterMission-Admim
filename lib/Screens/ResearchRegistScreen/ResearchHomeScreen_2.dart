@@ -18,16 +18,20 @@ class ResearchHomeScreen_2 extends StatefulWidget {
 
 class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
   @override
-  final TextEditingController clientNameTextController = TextEditingController();
+  final TextEditingController clientNameTextController =
+      TextEditingController();
   final TextEditingController emailTextConroller = TextEditingController();
   final TextEditingController clientJobTextController = TextEditingController();
   final TextEditingController clientJobEtcTextController =
-  TextEditingController();
-  final TextEditingController companyNameTextController = TextEditingController();
+      TextEditingController();
+  final TextEditingController companyNameTextController =
+      TextEditingController();
 
-  final TextEditingController requireNumberTextController = TextEditingController();
+  final TextEditingController requireNumberTextController =
+      TextEditingController();
   final TextEditingController etcAskTextController = TextEditingController();
-  final TextEditingController clientPhoneTextController = TextEditingController();
+  final TextEditingController clientPhoneTextController =
+      TextEditingController();
 
   void initState() {
     super.initState();
@@ -40,13 +44,13 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
     requireNumberTextController.addListener(_updateState);
     etcAskTextController.addListener(_updateState);
     clientPhoneTextController.addListener(_updateState);
-
   }
 
   final genderTypeList = ["남성", "여성", "상관없음"];
   var selectedGenderType = "남성";
   final onOffTypeList = ["온라인", "오프라인"];
   var seletedOnOffType = "온라인";
+  bool checkboxValue1 = false;
 
   void _updateState() {
     setState(() {}); // 텍스트 필드 값의 변경을 감지하여 상태를 업데이트합니다.
@@ -263,16 +267,15 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                           height: 8,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left : 4.0),
-                          child: CustomDropdownMenu(
-                            itemList: genderTypeList,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedGenderType = value; // 선택된 값 저장
-                              });
-                            },
-                          )
-                        )
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: CustomDropdownMenu(
+                              itemList: genderTypeList,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedGenderType = value; // 선택된 값 저장
+                                });
+                              },
+                            ))
                       ],
                     )
                   ],
@@ -292,7 +295,7 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left : 4.0),
+                          padding: const EdgeInsets.only(left: 4.0),
                           child: Text(
                             '모집 인원',
                             style: TextStyle(
@@ -326,7 +329,7 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left : 4.0),
+                          padding: const EdgeInsets.only(left: 4.0),
                           child: Text(
                             '기타 요청 사항',
                             style: TextStyle(
@@ -338,7 +341,6 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                           height: 8,
                         ),
                         ContentInputText(
-
                           textController: etcAskTextController,
                         )
                       ],
@@ -346,6 +348,53 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                   ],
                 ),
               ),
+
+              // ListTile(
+              //   title: Text("Option 1"),
+              //   leading: Checkbox(
+              //     value: checkboxValue1,
+              //     onChanged: (value) {
+              //       setState(() {
+              //         checkboxValue1 = value!;
+              //       });
+              //     },
+              //   ),
+              // ),
+              Container(
+                width: MediaQuery.of(context).size.width / 2.5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              checkboxValue1 = !checkboxValue1;
+                            });
+                          },
+                          child: Icon(
+                            checkboxValue1 ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+                            color: checkboxValue1 ? Colors.blue : Colors.grey,
+                          ),
+                        ),
+                        SizedBox(width: 8), // 간격 조정을 위한 SizedBox
+                        Text(
+                          '리서치 등록 동의 여부',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
               const SizedBox(
                 height: 16,
               ),
@@ -401,7 +450,8 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
 
   void onPressed() {
     print(selectedGenderType);
-    for(int i =0; i < 2; i++) {
+    print(checkboxValue1);
+    for (int i = 0; i < 2; i++) {
       Navigator.pop(context);
     }
   }
