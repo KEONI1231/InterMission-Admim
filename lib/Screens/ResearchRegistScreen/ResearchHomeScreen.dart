@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScreen_2.dart';
 
-import '../../Components/CustomIconBtn.dart';
+import '../../Components/Buttons/CustomIconBtn.dart';
 
-import '../../Components/ContentInputForm.dart';
-import '../../Components/CustomRearchRegisterBtn.dart';
-import '../../Components/TitleInputForm.dart';
+import '../../Components/InputForms/ContentInputForm.dart';
+import '../../Components/Buttons/CustomRearchRegisterBtn.dart';
+import '../../Components/InputForms/CustomDropdownMenui.dart';
+import '../../Components/InputForms/TitleInputForm.dart';
 
 class ResearchHomeScreen extends StatefulWidget {
   const ResearchHomeScreen({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
   final researchTypeList = ["인터뷰", "설문", "테스터"];
   var selectedType = "인터뷰";
   final onOffTypeList = ["온라인", "오프라인"];
-  var seletedOnOffType = "온라인";
+  var selectedOnOffType = "온라인";
 
   void _updateState() {
     setState(() {}); // 텍스트 필드 값의 변경을 감지하여 상태를 업데이트합니다.
@@ -288,50 +289,14 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                           SizedBox(
                             height: 8,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 2.53,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
-                              border:
-                                  Border.all(color: Colors.grey, width: 1.0),
-                            ),
-                            child: DropdownButtonHideUnderline(
-                              // Underline을 숨깁니다.
-                              child: DropdownButton<String>(
-                                value: selectedType,
-                                isExpanded: true,
-                                // DropdownButton이 Container의 전체 너비를 사용하도록 설정합니다.
-                                items: researchTypeList
-                                    .map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16.0)),
-                                  );
-                                }).toList(),
-                                onChanged: (String? newValue) {
-                                  if (newValue != null) {
-                                    // newValue가 null이 아닌 경우에만 상태를 업데이트합니다.
-                                    setState(() {
-                                      selectedType = newValue;
-                                      print(selectedType);
-                                    });
-                                  }
-                                },
-                                icon: Icon(Icons.arrow_drop_down,
-                                    color: Colors.grey),
-                                // 드롭다운 아이콘의 색상 변경
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 16.0),
-                                dropdownColor: Colors.white, // 드롭다운 항목의 배경색 변경
-                              ),
-                            ),
-                          )
+                          CustomDropdownMenu(
+                            itemList: researchTypeList,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedType = value; // 선택된 값 저장
+                              });
+                            },
+                          ),
                         ],
                       ),
                     )
@@ -362,44 +327,11 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                           SizedBox(
                             height: 8,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 2.53,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
-                              border:
-                                  Border.all(color: Colors.grey, width: 1.0),
-                            ),
-                            child: DropdownButtonHideUnderline(
-                              // Underline을 숨깁니다.
-                              child: DropdownButton<String>(
-                                value: seletedOnOffType,
-                                isExpanded: false,
-                                // DropdownButton이 Container의 전체 너비를 사용하도록 설정합니다.
-                                items: onOffTypeList.map((value) {
-                                  return DropdownMenuItem(
-                                    value: value,
-                                    child: Text(value,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16.0)),
-                                  );
-                                }).toList(),
-                                onChanged: (value) {
-                                  setState(() {
-                                    seletedOnOffType = value.toString();
-                                  });
-                                },
-                                icon: Icon(Icons.arrow_drop_down,
-                                    color: Colors.grey),
-                                // 드롭다운 아이콘의 색상 변경
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 16.0),
-                                dropdownColor: Colors.white, // 드롭다운 항목의 배경색 변경
-                              ),
-                            ),
-                          )
+                         CustomDropdownMenu(itemList: onOffTypeList, onChanged: (value) {
+                           setState(() {
+                             selectedOnOffType = value; // 선택된 값 저장
+                           });
+                         },),
                         ],
                       ),
                     )
@@ -459,6 +391,8 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
   }
 
   void onPressed() {
+    print(selectedType);
+    print(selectedOnOffType);
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (BuildContext context) {
       return ResearchHomeScreen_2();

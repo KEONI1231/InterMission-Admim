@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:intermission_admin/Components/CustomButton.dart';
+import 'package:intermission_admin/Components/Buttons/CustomButton.dart';
 import 'package:intermission_admin/Screens/EntryMenuScreen/EntryMenuSelectScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:intermission_admin/main.dart';
 import '../Components/CircularProgress.dart';
-import '../Components/CustomTextField.dart';
+import '../Components/InputForms/CustomTextField.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

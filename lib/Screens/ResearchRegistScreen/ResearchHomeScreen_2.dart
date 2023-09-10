@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intermission_admin/Components/InputForms/CustomDropdownMenui.dart';
 import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScreen_2.dart';
 
-import '../../Components/CustomIconBtn.dart';
+import '../../Components/Buttons/CustomIconBtn.dart';
 
-import '../../Components/ContentInputForm.dart';
+import '../../Components/InputForms/ContentInputForm.dart';
 
-import '../../Components/CustomRearchRegisterBtn_2.dart';
-import '../../Components/TitleInputForm.dart';
+import '../../Components/Buttons/CustomRearchRegisterBtn_2.dart';
+import '../../Components/InputForms/TitleInputForm.dart';
 
 class ResearchHomeScreen_2 extends StatefulWidget {
   const ResearchHomeScreen_2({Key? key}) : super(key: key);
@@ -263,50 +264,14 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left : 4.0),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width / 2.53,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4.0),
-                              border:
-                              Border.all(color: Colors.grey, width: 1.0),
-                            ),
-                            child: DropdownButtonHideUnderline(
-                              // Underline을 숨깁니다.
-                              child: DropdownButton<String>(
-                                value: selectedGenderType,
-                                isExpanded: true,
-                                // DropdownButton이 Container의 전체 너비를 사용하도록 설정합니다.
-                                items: genderTypeList
-                                    .map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value,
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 16.0)),
-                                      );
-                                    }).toList(),
-                                onChanged: (String? newValue) {
-                                  if (newValue != null) {
-                                    // newValue가 null이 아닌 경우에만 상태를 업데이트합니다.
-                                    setState(() {
-                                      selectedGenderType = newValue;
-                                      print(selectedGenderType);
-                                    });
-                                  }
-                                },
-                                icon: Icon(Icons.arrow_drop_down,
-                                    color: Colors.grey),
-                                // 드롭다운 아이콘의 색상 변경
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 16.0),
-                                dropdownColor: Colors.white, // 드롭다운 항목의 배경색 변경
-                              ),
-                            ),
-                          ),
+                          child: CustomDropdownMenu(
+                            itemList: genderTypeList,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedGenderType = value; // 선택된 값 저장
+                              });
+                            },
+                          )
                         )
                       ],
                     )
@@ -413,7 +378,7 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                 height: 32,
               ),
               CustomResearchRegisterBtn(
-                btnText: '다음',
+                btnText: '등록',
                 onPressed: onPressed,
                 content1: clientNameTextController.text,
                 content2: clientJobEtcTextController.text,
@@ -435,6 +400,7 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
   }
 
   void onPressed() {
+    print(selectedGenderType);
     for(int i =0; i < 2; i++) {
       Navigator.pop(context);
     }

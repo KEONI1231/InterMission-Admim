@@ -5,3 +5,5 @@ const Color purple = Color(0XFFb98bf3);
 const Color lightBlue = Color(0xffe3f3fe);
 const Color blue = Color(0xff77beee);
 const Color purpleBtnColor = Color(0xffc3a8e6);
+
+const Color purpleTextColor = Color(0xffbe8ef8);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intermission_admin/Components/CustomIconBtn.dart';
+import 'package:intermission_admin/Components/Buttons/CustomIconBtn.dart';
 import 'package:intermission_admin/Constants/Color.dart';
 import 'package:intermission_admin/Screens/AcceptCheckScreen/AcceptHomeScreen.dart';
 import 'package:intermission_admin/Screens/NoticeRegistScreen/NoticeHomeScreen.dart';

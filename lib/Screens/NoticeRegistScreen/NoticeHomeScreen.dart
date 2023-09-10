@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intermission_admin/Components/CustomButton.dart';
-import 'package:intermission_admin/Components/CustomRegisterBtn.dart';
-import 'package:intermission_admin/Components/ContentInputForm.dart';
-import 'package:intermission_admin/Components/TitleInputForm.dart';
+import 'package:intermission_admin/Components/Buttons/CustomButton.dart';
+import 'package:intermission_admin/Components/Buttons/CustomRegisterBtn.dart';
+import 'package:intermission_admin/Components/InputForms/ContentInputForm.dart';
+import 'package:intermission_admin/Components/InputForms/TitleInputForm.dart';
 
-import '../../Components/CustomIconBtn.dart';
+import '../../Components/Buttons/CustomIconBtn.dart';
 import '../../trashcan/BottomNavi.dart';
 
 class NoticeHomeScreen extends StatefulWidget {
