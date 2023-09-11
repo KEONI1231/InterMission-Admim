@@ -70,11 +70,11 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 48,
                 ),
                 CustomIconBtn(),
-                SizedBox(
+                const SizedBox(
                   height: 48,
                 ),
                 Container(
@@ -91,7 +91,7 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 32),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
                           Text(

@@ -100,7 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
             .push(MaterialPageRoute(builder: (BuildContext context) {
           return HomeScreen();
         }));
-      //print(NaviDetermine.rightArrowStatus);
+
+
+        //print(NaviDetermine.rightArrowStatus);
       //Navigator.of(context).pushNamed('/entryMenuScreen');
 
 

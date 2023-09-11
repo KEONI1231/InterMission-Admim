@@ -1,9 +1,14 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intermission_admin/Components/Buttons/CustomIconBtn.dart';
 import 'package:intermission_admin/Constants/Color.dart';
 import 'package:intermission_admin/Screens/AcceptCheckScreen/AcceptHomeScreen.dart';
 import 'package:intermission_admin/Screens/NoticeRegistScreen/NoticeHomeScreen.dart';
 import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../main.dart';
+import '../LoginScreen.dart';
 
 //login 이후 보여질 스크린
 class HomeScreen extends StatefulWidget {
@@ -33,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(height: 100,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -68,6 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Spacer(),
+            LogoutBtn(),
+            SizedBox(height: 32,)
           ],
         ),
       ),
@@ -178,6 +186,84 @@ class MenuContainerBox extends StatelessWidget {
           height: 32,
         ),
       ],
+    );
+  }
+}
+class LogoutBtn extends StatelessWidget {
+  const LogoutBtn({Key? key}) : super(key: key);
+
+  Future<String?> getSavedAccessToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('accessToken');
+  }
+
+  Future<void> removeAuthorizationTokens() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('accessToken');
+    await prefs.remove('refreshToken');
+  }
+
+  Future<void> _logout(BuildContext context) async {
+    try {
+      String? accessToken = await getSavedAccessToken();
+
+      if (accessToken != null) {
+        final dio = Dio(); // 여기서 Dio 인스턴스를 생성하거나 외부에서 주입받을 수 있습니다.
+        final response = await dio.post(
+          'http://34.64.77.5:8080/api/auth/logout',
+          options: Options(
+            headers: {
+              'Authorization': "Bearer $accessToken",
+            },
+          ),
+        );
+
+        if (response.statusCode == 200 || response.statusCode == 204) {
+          await removeAuthorizationTokens();
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
+            return LoginScreen(); // 로그아웃 후 이동할 로그인 화면입니다.
+          }));
+        } else {
+          // 에러 처리 (예: 사용자에게 알림 표시)
+        }
+      } else {
+        print("Access token is null");
+        // 토큰이 null인 경우에 대한 추가적인 처리 (예: 사용자에게 알림 표시)
+      }
+    } catch (e) {
+      print(e);
+      // 에러 처리 (예: 사용자에게 알림 표시)
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ContainerDecoration = BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: [
+        BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 10,
+            offset: Offset(0, 0))
+      ],
+    );
+
+    return Center(
+      child: GestureDetector(
+        onTap: () => _logout(context),
+        child: Container(
+          width: 80,
+          height: 72,
+          decoration: ContainerDecoration,
+          child: Icon(
+            Icons.logout,
+            color: Colors.blue, // 이 부분에서 `blue`는 실제로 사용하는 색상 변수로 대체해야 합니다.
+            size: 48,
+          ),
+        ),
+      ),
     );
   }
 }
