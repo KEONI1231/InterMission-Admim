@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intermission_admin/Constants/Color.dart';
 
-class CustomIconBtn extends StatelessWidget {
-
-  const CustomIconBtn({Key? key}) : super(key: key);
+class CustomSaveBtn extends StatelessWidget {
+  const CustomSaveBtn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +17,10 @@ class CustomIconBtn extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Icon(
-
           //Icons.arrow_circle_left_outlined,
-          Icons.keyboard_backspace,
+
+          Icons.save_as,
+
           color: purpleBtnColor,
           size: 40,
         ),

@@ -16,55 +16,60 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          //CustomIconBtn(),
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(96, 0, 96, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    MenuContainerBox(
-                      containerInnerText: '공지사항 등록',
-                      onPressed: noticeNavigate,
-                      containerBtnText: '공지사항 등록',
-                      icon: Icons.content_paste,
-                      iconColor: purple,
-                      containerColor: lightPurple,
-                    ),
-                    SizedBox(width: 32,),
-                    MenuContainerBox(
-                      containerInnerText: '리서치 등록',
-                      onPressed: researchNavigate,
-                      containerBtnText: '리서치 등록',
-                      icon: Icons.zoom_in,
-                      iconColor: blue,
-                      containerColor: lightBlue,
-                    ),
-                    SizedBox(width: 32,),
-                    MenuContainerBox(
-                      containerInnerText: '수락 확인',
-                      onPressed: acceptNavigate,
-                      containerBtnText: '수락확인',
-                      icon: Icons.checklist_outlined,
-                      iconColor: purple,
-                      containerColor: lightPurple,
-                    ),
-                  ],
-                ),
-              ],
+    return WillPopScope(
+      onWillPop: () {
+        return Future(()=> false);
+      },
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //CustomIconBtn(),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(96, 0, 96, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MenuContainerBox(
+                        containerInnerText: '공지사항 등록',
+                        onPressed: noticeNavigate,
+                        containerBtnText: '공지사항 등록',
+                        icon: Icons.content_paste,
+                        iconColor: purple,
+                        containerColor: lightPurple,
+                      ),
+                      SizedBox(width: 32,),
+                      MenuContainerBox(
+                        containerInnerText: '리서치 등록',
+                        onPressed: researchNavigate,
+                        containerBtnText: '리서치 등록',
+                        icon: Icons.zoom_in,
+                        iconColor: blue,
+                        containerColor: lightBlue,
+                      ),
+                      SizedBox(width: 32,),
+                      MenuContainerBox(
+                        containerInnerText: '수락 확인',
+                        onPressed: acceptNavigate,
+                        containerBtnText: '수락확인',
+                        icon: Icons.checklist_outlined,
+                        iconColor: purple,
+                        containerColor: lightPurple,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          Spacer(),
-        ],
+            Spacer(),
+          ],
+        ),
       ),
     );
   }

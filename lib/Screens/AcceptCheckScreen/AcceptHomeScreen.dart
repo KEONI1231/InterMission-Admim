@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intermission_admin/Components/Buttons/CustomIconBtn.dart';
+import 'package:intermission_admin/Components/Buttons/CustomSaveBtn.dart';
 import 'package:intermission_admin/Constants/Color.dart';
 
 class AcceptHomeScreen extends StatelessWidget {
@@ -17,94 +19,121 @@ class AcceptHomeScreen extends StatelessWidget {
             offset: Offset(0, 0))
       ],
     );
+    final ContainerBorderDecoration = BoxDecoration(
+        color: Colors.white,
+        border: Border.all(),
+        borderRadius: BorderRadius.circular(12));
     const double defaultHeightGap = 36;
     const TextStyle ts = TextStyle(fontWeight: FontWeight.bold, fontSize: 24);
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 48,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '수락확인',
-                      style: ts.copyWith(fontSize: 32),
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                  ],
+
+    return WillPopScope(
+      onWillPop: () {
+        return Future(() => false);
+      },
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 48,
                 ),
-              ),
-              SizedBox(
-                height: defaultHeightGap,
-              ),
-              Container(
-                decoration: ContainerDecoration,
-                width: MediaQuery.of(context).size.width / 1.9,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                Container(
+                  width: MediaQuery.of(context).size.width / 1.9,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 32,
-                        color: purpleBtnColor,
+                      Text(
+                        '수락확인',
+                        style: ts.copyWith(fontSize: 32),
                       ),
-                      SizedBox(width: 12), // Icon과 Text 사이의 간격
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  '유저가 ',
-                                  style: ts,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  '청년 마인트케어',
-                                  style: ts.copyWith(color: purpleTextColor),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  ' 리서치에',
-                                  style: ts,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  ' 수락했습니다.',
-                                  style: ts,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
+                      Row(
+                        children: [
+                          Container(
+                            decoration: ContainerDecoration,
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: CustomIconBtn(),
                             ),
-                            SizedBox(height: 8),
-                            Text(
-                              '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
-                              style: ts.copyWith(fontSize: 20, fontWeight: FontWeight.normal),
-                              overflow: TextOverflow.ellipsis,
+                          ),
+                          SizedBox(width: 20),
+                          Container(
+                            decoration: ContainerDecoration,
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: CustomSaveBtn(),
                             ),
-                          ],
-                        ),
-                      ),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ),
-              ),
-
-            ],
+                SizedBox(
+                  height: defaultHeightGap,
+                ),
+                Container(
+                  decoration: ContainerDecoration,
+                  width: MediaQuery.of(context).size.width / 1.9,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.check_circle,
+                          size: 32,
+                          color: purpleBtnColor,
+                        ),
+                        SizedBox(width: 12), // Icon과 Text 사이의 간격
+                        Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    '유저가 ',
+                                    style: ts,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Text(
+                                    '청년 마인트케어',
+                                    style: ts.copyWith(color: purpleTextColor),
+                                    overflow: TextOverflow.ellipsis,
+                                  ), //변수
+                                  Text(
+                                    ' 리서치',
+                                    style: ts,
+                                    overflow: TextOverflow.ellipsis,
+                                  ), //변수
+                                  Text(
+                                    '에 수락했습니다.',
+                                    style: ts,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+                                '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
+                                //모두 변수
+                                style: ts.copyWith(
+                                    fontSize: 20, fontWeight: FontWeight.normal),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
