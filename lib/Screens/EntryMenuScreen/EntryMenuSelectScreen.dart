@@ -252,7 +252,11 @@ class LogoutBtn extends StatelessWidget {
 
     return Center(
       child: GestureDetector(
-        onTap: () => _logout(context),
+        //onTap: () => _logout(context),
+        onTap: () {
+          Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),);
+        },
         child: Container(
           width: 80,
           height: 72,

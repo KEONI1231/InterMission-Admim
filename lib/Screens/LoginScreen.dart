@@ -37,54 +37,59 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 150,
-            ),
+    return WillPopScope(
+      onWillPop: () {
+        return Future(() => false);
+      },
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 150,
+              ),
 
-            Form(
-              key: formKey,
-              child: Container(
-                width: 500,
-                height: 600,
-                decoration: ContainerDecoration,
-                child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 56,
-                    ),
-                    Image.asset(
-                      'assets/img/main_logo.png',
-                      width: 200,
-                    ),
-                    const SizedBox(
-                      height: 56,
-                    ),
-                    CustomTextField(
-                        textInputType: TextInputType.text,
-                        Controller: _idTextController,
-                        label: 'ID'),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    CustomTextField(
-                        textInputType: TextInputType.visiblePassword,
-                        Controller: _pwTextController,
-                        label: 'PW'),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    CustomButton(btnText: '로그인', onPressed: onPressed)
-                  ],
+              Form(
+                key: formKey,
+                child: Container(
+                  width: 500,
+                  height: 600,
+                  decoration: ContainerDecoration,
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 56,
+                      ),
+                      Image.asset(
+                        'assets/img/main_logo.png',
+                        width: 200,
+                      ),
+                      const SizedBox(
+                        height: 56,
+                      ),
+                      CustomTextField(
+                          textInputType: TextInputType.text,
+                          Controller: _idTextController,
+                          label: 'ID'),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      CustomTextField(
+                          textInputType: TextInputType.visiblePassword,
+                          Controller: _pwTextController,
+                          label: 'PW'),
+                      const SizedBox(
+                        height: 80,
+                      ),
+                      CustomButton(btnText: '로그인', onPressed: onPressed)
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
