@@ -80,22 +80,29 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            '리서치 등록',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 32),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '리서치 등록',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              ),
+
+                            ],
                           ),
                           SizedBox(
                             height: 8,
                           ),
                           Text(
                             '등록할 리서치의 상세 항목을 입력해주세요.',
-                            style: TextStyle(fontSize: 24, color: Colors.grey),
+                            style: TextStyle(fontSize: 20, color: Colors.grey),
                           )
+
                         ],
                       ),
                       Text('1 / 2',
-                          style: TextStyle(fontSize: 24, color: Colors.grey[700]))
+                        style: TextStyle(fontSize: 20, color: Colors.grey[700]),)
                     ],
                   ),
                 ),

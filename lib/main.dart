@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-//import 'package:intermission_admin/trashcan/NavigatorDetermine.dart';
 import 'package:intermission_admin/Screens/AcceptCheckScreen/AcceptHomeScreen.dart';
 import 'package:intermission_admin/Screens/EntryMenuScreen/EntryMenuSelectScreen.dart';
 import 'package:intermission_admin/Screens/NoticeRegistScreen/NoticeHomeScreen.dart';
