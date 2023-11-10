@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intermission_admin/Constants/Color.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -17,7 +18,7 @@ class CustomButton extends StatelessWidget {
       height: 44,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: Colors.black,
+            primary: purpleBtnColor,
             elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16))),

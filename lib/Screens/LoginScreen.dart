@@ -1,12 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intermission_admin/Components/Buttons/CustomButton.dart';
 import 'package:intermission_admin/Screens/EntryMenuScreen/EntryMenuSelectScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
-import 'package:intermission_admin/main.dart';
-import '../Components/CircularProgress.dart';
 import '../Components/InputForms/CustomTextField.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -21,7 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final TextEditingController _idTextController = TextEditingController();
   final TextEditingController _pwTextController = TextEditingController();
-
   final ContainerDecoration = BoxDecoration(
     color: Colors.white,
     //border: Border.all(width: 2, color: PRIMARY_COLOR),
@@ -31,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.grey.withOpacity(0.5),
           spreadRadius: 3,
           blurRadius: 7,
-          offset: Offset(0, 1))
+          offset: const Offset(0, 1))
     ],
   );
 
@@ -48,7 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 150,
               ),
-
               Form(
                 key: formKey,
                 child: Container(
@@ -96,20 +89,17 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void onPressed() async {
-
     if (formKey.currentState == null) {
       return;
     }
     if (formKey.currentState!.validate()) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (BuildContext context) {
-          return HomeScreen();
-        }));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (BuildContext context) {
+        return HomeScreen();
+      }));
 
-
-        //print(NaviDetermine.rightArrowStatus);
+      //print(NaviDetermine.rightArrowStatus);
       //Navigator.of(context).pushNamed('/entryMenuScreen');
-
 
       // try {
       //   print(_idTextController.text.toString());

@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:intermission_admin/Components/Buttons/CustomIconBtn.dart';
 import 'package:intermission_admin/Constants/Color.dart';
 import 'package:intermission_admin/Screens/AcceptCheckScreen/AcceptHomeScreen.dart';
+import 'package:intermission_admin/Screens/CheckPointExchangeScreen.dart';
+import 'package:intermission_admin/Screens/CheckRequestResearch/CheckRequestResearchEntry.dart';
+import 'package:intermission_admin/Screens/CheckRequestResearch/Screens/SurveyScreen.dart';
 import 'package:intermission_admin/Screens/NoticeRegistScreen/NoticeHomeScreen.dart';
 import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-        return Future(()=> false);
+        return Future(() => false);
       },
       child: Scaffold(
         body: Column(
@@ -38,19 +41,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 100,),
+                  SizedBox(
+                    height: 100,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MenuContainerBox(
-                        containerInnerText: '공지사항 등록',
-                        onPressed: noticeNavigate,
-                        containerBtnText: '공지사항 등록',
+                        containerInnerText: '리서치 요청 확인',
+                        onPressed: checkRequsetResearchNavigate,
+                        containerBtnText: '리서치 요청 확인',
                         icon: Icons.content_paste,
                         iconColor: purple,
                         containerColor: lightPurple,
+                        imgPath: 'assets/img/CheckRequestResearch.png',
                       ),
-                      SizedBox(width: 32,),
+                      SizedBox(
+                        width: 32,
+                      ),
                       MenuContainerBox(
                         containerInnerText: '리서치 등록',
                         onPressed: researchNavigate,
@@ -58,15 +66,45 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icons.zoom_in,
                         iconColor: blue,
                         containerColor: lightBlue,
+                        imgPath: 'assets/img/RegistResearch.png',
                       ),
-                      SizedBox(width: 32,),
+                      SizedBox(
+                        width: 32,
+                      ),
+                      MenuContainerBox(
+                        containerInnerText: '공지사항 등록',
+                        onPressed: noticeNavigate,
+                        containerBtnText: '공지사항 등록',
+                        icon: Icons.content_paste,
+                        iconColor: purple,
+                        containerColor: lightPurple,
+                        imgPath: 'assets/img/RegistNotice.png',
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                       MenuContainerBox(
                         containerInnerText: '수락 확인',
                         onPressed: acceptNavigate,
                         containerBtnText: '수락확인',
                         icon: Icons.checklist_outlined,
-                        iconColor: purple,
-                        containerColor: lightPurple,
+                        iconColor: blue,
+                        containerColor: lightBlue,
+                        imgPath: 'assets/img/CheckAccept.png',
+                      ),
+                      SizedBox(
+                        width: 32,
+                      ),
+                      MenuContainerBox(
+                        containerInnerText: '포인트 교환 요청 확인',
+                        onPressed: checkPointExchange,
+                        containerBtnText: '포인트 교환 요청 확인',
+                        icon: Icons.zoom_in,
+                        iconColor: blue,
+                        containerColor: lightBlue,
+                        imgPath: 'assets/img/CheckPointExchange.png',
                       ),
                     ],
                   ),
@@ -75,7 +113,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Spacer(),
             LogoutBtn(),
-            SizedBox(height: 32,)
+            SizedBox(
+              height: 32,
+            )
           ],
         ),
       ),
@@ -109,10 +149,28 @@ class _HomeScreenState extends State<HomeScreen> {
       return ResearchHomeScreen();
     }));
   }
+  void checkRequsetResearchNavigate() {
+    print('리서치 요청 확인');
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (BuildContext context) {
+      return CheckRequsetResearch();
+    }));
+  }
+
+  void checkPointExchange() {
+    print('수락확인 등록 버튼');
+    //NaviDetermine.stackIntdexPlus('noticeScreen');
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (BuildContext context) {
+      return CheckPointExchangeScreen();
+    }));
+  }
 }
+
 class MenuContainerBox extends StatelessWidget {
   final String containerBtnText;
   final String containerInnerText;
+  final String imgPath;
   final VoidCallback onPressed;
   final IconData icon;
   final Color iconColor;
@@ -125,6 +183,7 @@ class MenuContainerBox extends StatelessWidget {
     required this.icon,
     required this.containerColor,
     required this.iconColor,
+    required this.imgPath,
     Key? key,
   }) : super(key: key);
 
@@ -162,10 +221,9 @@ class MenuContainerBox extends StatelessWidget {
                   ),
                   width: 110,
                   height: 110,
-                  child: Icon(
-                    icon,
-                    size: 80,
-                    color: iconColor,
+                  child: Image.asset(
+                    imgPath,
+                    width: 200,
                   ),
                 ),
                 SizedBox(
@@ -189,6 +247,7 @@ class MenuContainerBox extends StatelessWidget {
     );
   }
 }
+
 class LogoutBtn extends StatelessWidget {
   const LogoutBtn({Key? key}) : super(key: key);
 
@@ -220,7 +279,8 @@ class LogoutBtn extends StatelessWidget {
 
         if (response.statusCode == 200 || response.statusCode == 204) {
           await removeAuthorizationTokens();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (BuildContext context) {
             return LoginScreen(); // 로그아웃 후 이동할 로그인 화면입니다.
           }));
         } else {
@@ -255,7 +315,10 @@ class LogoutBtn extends StatelessWidget {
         //onTap: () => _logout(context),
         onTap: () {
           Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginScreen()),
+          );
         },
         child: Container(
           width: 80,

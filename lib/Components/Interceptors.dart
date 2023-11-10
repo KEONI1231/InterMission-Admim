@@ -25,9 +25,7 @@ InterceptorsWrapper customInterceptor(Dio dio) {
           // 리프레쉬 토큰이 없는 경우 (예: 사용자가 처음 로그인하는 경우)
           return handler.next(e);
         }
-
         RequestOptions requestOptions = e.requestOptions;
-
         // 액세스 토큰을 다시 받아오는 요청
         Response? tokenResponse;
         try {
@@ -52,12 +50,9 @@ InterceptorsWrapper customInterceptor(Dio dio) {
             );
             // 로그아웃 처리 로직 (예: 사용자에게 로그아웃 알림 표시)
             // admin 계정 로그아웃. 걍 튕겨버리기.
-
-
             return handler.next(e);
           }
         }
-
         if (tokenResponse != null) {
           // 액세스 토큰 갱신 성공
           String newAccessToken = tokenResponse.data['accessToken'];

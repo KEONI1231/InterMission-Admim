@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intermission_admin/Components/Buttons/CustomIconBtn.dart';
-import 'package:intermission_admin/Components/Buttons/CustomSaveBtn.dart';
-import 'package:intermission_admin/Constants/Color.dart';
 
-class AcceptHomeScreen extends StatelessWidget {
-  const AcceptHomeScreen({Key? key}) : super(key: key);
+import '../Components/Buttons/CustomIconBtn.dart';
+import '../Components/Buttons/CustomSaveBtn.dart';
+import '../Constants/Color.dart';
+class CheckPointExchangeScreen extends StatelessWidget {
+  const CheckPointExchangeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,6 @@ class AcceptHomeScreen extends StatelessWidget {
                             ),
                           ),
 
-
                         ],
                       )
                     ],
@@ -67,56 +66,48 @@ class AcceptHomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: defaultHeightGap,
                 ),
-                Container(
-                  decoration: ContainerDecoration,
-                  width: MediaQuery.of(context).size.width / 1.9,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.check_circle,
-                          size: 32,
-                          color: purpleBtnColor,
-                        ),
-                        SizedBox(width: 12), // Icon과 Text 사이의 간격
-                        Flexible(
-                          child: SelectableRegion(
-                            focusNode: FocusNode(),
-                            selectionControls: MaterialTextSelectionControls(),
+                SelectableRegion(
+                  focusNode: FocusNode(),
+                  selectionControls: MaterialTextSelectionControls(),
+                  child: Container(
+                    decoration: ContainerDecoration,
+                    width: MediaQuery.of(context).size.width / 1.9,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.check_circle,
+                            size: 32,
+                            color: purpleBtnColor,
+                          ),
+                          SizedBox(width: 12), // Icon과 Text 사이의 간격
+                          Flexible(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   children: [
+
                                     Text(
-                                      '유저가 ',
-                                      style: ts,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    Text(
-                                      '청년 마인트케어',
+                                      '교환 요청 ',
                                       style: ts.copyWith(color: purpleTextColor),
                                       overflow: TextOverflow.ellipsis,
                                     ), //변수
                                     Text(
-                                      ' 리서치',
-                                      style: ts,
-                                      overflow: TextOverflow.ellipsis,
-                                    ), //변수
-                                    Text(
-                                      '에 수락했습니다.',
+                                      '이 확인되었습니다.',
                                       style: ts,
                                       overflow: TextOverflow.ellipsis,
                                     ),
+
                                   ],
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  '김조사 / 29세 / 남성 / 프리렌서 / 1인 가구 / 서울시 강남구 / 인스타그램 / 운동',
+                                  '김조사 유저 / 11-222-333-456 국민 은행 / 10만원',
                                   //모두 변수
                                   style: ts.copyWith(
                                       fontSize: 20, fontWeight: FontWeight.normal),
@@ -125,8 +116,8 @@ class AcceptHomeScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
