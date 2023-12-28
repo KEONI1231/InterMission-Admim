@@ -21,10 +21,8 @@ class _InterViewScreenState extends State<InterViewScreen> {
     super.initState();
     fetchData();
   }
-
   void fetchData() async {
     if (isLoading || (pages.isNotEmpty && pages.last.last)) return;
-
     isLoading = true;
     Dio dio = Dio();
     try {
@@ -45,7 +43,6 @@ class _InterViewScreenState extends State<InterViewScreen> {
       isLoading = false;
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +81,6 @@ class _InterViewScreenState extends State<InterViewScreen> {
       color: purpleSTextColor,
       fontSize: 18,
     );
-
     final ContainerDecoration = BoxDecoration(
       color: lightPurple,
       borderRadius: BorderRadius.circular(12),
@@ -100,67 +96,77 @@ class _InterViewScreenState extends State<InterViewScreen> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 하는 일 : ', style: ts),
-            Text(interviewContent.job, style: contentTs)
+            Flexible(child: Text(interviewContent.job, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 회사명/아이템명 : ', style: ts),
-            Text(interviewContent.companyNameOrItemName, style: contentTs)
+            Flexible(
+                child: Text(interviewContent.companyNameOrItemName,
+                    style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 아이템 한 줄 소개 : ', style: ts),
-            Text(interviewContent.itemIntroduction, style: contentTs)
+            Flexible(
+                child:
+                    Text(interviewContent.itemIntroduction, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 인터뷰 방법 : ', style: ts),
-            Text(interviewContent.interviewMethod, style: contentTs)
+            Flexible(
+                child: Text(interviewContent.interviewMethod, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 예상 소요 시간 : ', style: ts),
-            Text(interviewContent.estimatedTime, style: contentTs)
+            Flexible(
+                child: Text(interviewContent.estimatedTime, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 인터뷰 보상 : ', style: ts),
-            Text(interviewContent.interviewReward, style: contentTs)
+            Flexible(
+                child: Text(interviewContent.interviewReward, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 원하는 인터뷰이 특성 : ', style: ts),
-            Text(interviewContent.desiredIntervieweeCharacteristics,
-                style: contentTs)
+            Flexible(
+                child: Text(interviewContent.desiredIntervieweeCharacteristics,
+                    style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 원하는 인원 : ', style: ts),
-            Text(interviewContent.desiredParticipants, style: contentTs)
+            Flexible(
+                child: Text(interviewContent.desiredParticipants,
+                    style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 기타 요청 사항 : ', style: ts),
-            Text(interviewContent.otherRequests, style: contentTs)
+            Flexible(child: Text(interviewContent.otherRequests, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 의뢰하는 서비스 : ', style: ts),
-            Text(interviewContent.requestedService, style: contentTs)
+            Flexible(child: Text(interviewContent.requestedService, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 인터뷰 목적 : ', style: ts),
-            Text(interviewContent.interviewPurpose, style: contentTs)
+            Flexible(child: Text(interviewContent.interviewPurpose, style: contentTs))
           ]),
-          SizedBox(height: 16),
-          Row(children: [
+          const SizedBox(height: 16),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('• 연락처 : ', style: ts),
-            Text(interviewContent.contact, style: contentTs)
+            Flexible(child: Text(interviewContent.contact, style: contentTs))
           ]),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
         ],
       );
     }).toList();

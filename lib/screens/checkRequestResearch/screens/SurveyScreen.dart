@@ -45,7 +45,6 @@ class _SurveyState extends State<Survey> {
       isLoading = false;
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +72,6 @@ class _SurveyState extends State<Survey> {
       ),
     );
   }
-
   Widget _buildPageContent(SurveyDto pageData) {
     final ts = TextStyle(
       color: purpleSTextColor,
@@ -100,39 +98,39 @@ class _SurveyState extends State<Survey> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 하는 일 : ', style: ts),
-            Text(surveyContent.job, style: contentTs),
+            Flexible(child: Text(surveyContent.job, style: contentTs)),
           ]),
           const SizedBox(height: 16),
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 설문 대상 : ', style: ts),
-            Text(surveyContent.target, style: contentTs),
+            Flexible(child: Text(surveyContent.target, style: contentTs)),
           ]),
           const SizedBox(height: 16),
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 설문 링크 : ', style: ts),
-            Text(surveyContent.link, style: contentTs)
+            Flexible(child: Text(surveyContent.link, style: contentTs))
           ]),
           const SizedBox(height: 16),
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 설문 예상 문항 및 응답 시간 : ', style: ts),
-            Text(surveyContent.expectedQuestions, style: contentTs)
+            Flexible(child: Text(surveyContent.expectedQuestions, style: contentTs))
           ]),
           const SizedBox(height: 16),
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 원하는 인원 : ', style: ts),
-            Text(surveyContent.desiredParticipants, style: contentTs)
+            Flexible(child: Text(surveyContent.desiredParticipants, style: contentTs))
           ]),
           const SizedBox(height: 16),
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 의뢰하는 서비스 : ', style: ts),
-            Text(surveyContent.requestedService, style: contentTs)
+            Flexible(child: Text(surveyContent.requestedService, style: contentTs))
           ]),
           const SizedBox(height: 16),
-          Row(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
             Text('• 연락처: ', style: ts),
-            Text(surveyContent.contact, style: contentTs)
+            Flexible(child: Text(surveyContent.contact, style: contentTs))
           ]),
           const SizedBox(height: 16),
           // 나머지 데이터에 대한 Row 위젯들...
