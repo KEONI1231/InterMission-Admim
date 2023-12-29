@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Future CustomDialog(context) async {
+Future CustomErrorDialog(context) async {
   //final ts = TextStyle(color: PRIMARY_COLOR);
 
   return await showDialog(
@@ -9,17 +9,15 @@ Future CustomDialog(context) async {
     builder: (BuildContext context) {
       return AlertDialog(
         backgroundColor: Colors.white,
-        title: Text('요청 중...'),
+        title: const Text('요청 중...'),
         content: Column(
           mainAxisSize: MainAxisSize.min, // 이 부분을 추가합니다.
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 8,
-            ),
-            Text('에러가 발생했습니다.'),
-            SizedBox(
+            const SizedBox(height: 8),
+            const Text('에러가 발생했습니다.'),
+            const SizedBox(
               height: 8,
             ),
           ],
@@ -31,7 +29,6 @@ Future CustomDialog(context) async {
             },
             child: Text('확인'),
           ),
-
         ],
       );
     },

@@ -1,9 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:intermission_admin/Screens/AcceptCheckScreen/AcceptHomeScreen.dart';
-import 'package:intermission_admin/Screens/EntryMenuScreen/EntryMenuSelectScreen.dart';
-import 'package:intermission_admin/Screens/NoticeRegistScreen/NoticeHomeScreen.dart';
-import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScreen.dart';
 import 'package:window_manager/window_manager.dart';
 import 'Components/Interceptors.dart';
 import 'Screens/LoginScreen.dart';

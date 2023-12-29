@@ -1,11 +1,12 @@
+
 import 'package:flutter/material.dart';
-import 'package:intermission_admin/Components/Buttons/CustomButton.dart';
+
 import 'package:intermission_admin/Components/Buttons/CustomRegisterBtn.dart';
 import 'package:intermission_admin/Components/InputForms/ContentInputForm.dart';
 import 'package:intermission_admin/Components/InputForms/TitleInputForm.dart';
 
 import '../../Components/Buttons/CustomIconBtn.dart';
-import '../../trashcan/BottomNavi.dart';
+
 
 class NoticeHomeScreen extends StatefulWidget {
   const NoticeHomeScreen({Key? key}) : super(key: key);
@@ -40,11 +41,11 @@ class _NoticeHomeScreenState extends State<NoticeHomeScreen> {
         body: Center(
           child: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 16.0),
                 child: CustomIconBtn(),
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -54,14 +55,10 @@ class _NoticeHomeScreenState extends State<NoticeHomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '공지사항 등록',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 32),
-                        ),
-                        SizedBox(
-                          height: 12,
-                        ),
+                        const Text('공지사항 등록',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 32)),
+                        const SizedBox(height: 12),
                         Text(
                           '공지사항에 등록할 내용을 입력해 주세요.',
                           style: TextStyle(fontSize: 24, color: Colors.grey),
@@ -69,17 +66,15 @@ class _NoticeHomeScreenState extends State<NoticeHomeScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 64,
-                  ),
+                  const SizedBox(height: 64),
                   Container(
                     width: MediaQuery.of(context).size.width / 2.5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 4.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 4.0),
                           child: Text(
                             '제목',
                             style: TextStyle(
@@ -87,9 +82,7 @@ class _NoticeHomeScreenState extends State<NoticeHomeScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        const SizedBox(height: 8),
                         TitleInputText(
                           hintText: "제목을 읿력해주세요.",
                           textController: titleTextController,
@@ -115,9 +108,7 @@ class _NoticeHomeScreenState extends State<NoticeHomeScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        const SizedBox(height: 8),
                         ContentInputText(
                           textController: contentTextController,
                         )
@@ -134,19 +125,15 @@ class _NoticeHomeScreenState extends State<NoticeHomeScreen> {
                   )
                 ],
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.only(right: 16.0),
-                child: SizedBox(
-                  width: 0,
-                ),
+                child: const SizedBox(width: 0),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),
       ),
     );
   }
-
-  void onPressed() {}
 }

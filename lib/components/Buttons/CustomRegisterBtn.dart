@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intermission_admin/Constants/Color.dart';
+import 'package:intermission_admin/components/CustomErrorDialog.dart';
+import 'package:intermission_admin/components/CustomSuccessDialog.dart';
 
 class CustomRegisterBtn extends StatefulWidget {
   final String btnText;
@@ -37,7 +40,7 @@ class _CustomRegisterBtnState extends State<CustomRegisterBtn> {
         onPressed: _isValid ? _onPressed : null,
         child: Text(
           widget.btnText,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
               color: Colors.white),
@@ -46,9 +49,22 @@ class _CustomRegisterBtnState extends State<CustomRegisterBtn> {
     );
   }
 
-  void _onPressed() {
-    // 여기서 버튼이 눌렸을 때의 로직을 구현합니다.
-
+  void _onPressed() async {
+    Dio dio = Dio();
+    try {
+      final result = await dio.get(
+          'admin/notify',
+          data: {
+            "mainTitle": widget.title.toString(),
+            "detail" : widget.content.toString(),
+          }
+      );
+      CustomSuccessDialog(context);
+    }
+    catch (e) {
+      CustomErrorDialog(context);
+      print(e);
+    }
     Navigator.pop(context);
   }
 }

@@ -74,6 +74,7 @@ flutter:
     - assets/img/CheckPointExchange.png
     - assets/img/CheckRequestResearch.png
     - assets/img/RegistResearch.png
+    - assets/img/ApplicationLogo.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
