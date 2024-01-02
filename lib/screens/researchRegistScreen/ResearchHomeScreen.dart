@@ -88,7 +88,6 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 24),
                               ),
-
                             ],
                           ),
                           SizedBox(
@@ -98,11 +97,12 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                             '등록할 리서치의 상세 항목을 입력해주세요.',
                             style: TextStyle(fontSize: 20, color: Colors.grey),
                           )
-
                         ],
                       ),
-                      Text('1 / 2',
-                        style: TextStyle(fontSize: 20, color: Colors.grey[700]),)
+                      Text(
+                        '1 / 2',
+                        style: TextStyle(fontSize: 20, color: Colors.grey[700]),
+                      )
                     ],
                   ),
                 ),
@@ -336,11 +336,14 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                             SizedBox(
                               height: 8,
                             ),
-                           CustomDropdownMenu(itemList: onOffTypeList, onChanged: (value) {
-                             setState(() {
-                               selectedOnOffType = value; // 선택된 값 저장
-                             });
-                           },),
+                            CustomDropdownMenu(
+                              itemList: onOffTypeList,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedOnOffType = value; // 선택된 값 저장
+                                });
+                              },
+                            ),
                           ],
                         ),
                       )
@@ -389,9 +392,7 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
                   content6: detailContentTextController.text,
                   content7: creditTextController.text,
                 ),
-                const SizedBox(
-                  height: 32,
-                ),
+                const SizedBox(height: 32),
               ],
             ),
           ),
@@ -405,7 +406,16 @@ class _ResearchHomeScreenState extends State<ResearchHomeScreen> {
     print(selectedOnOffType);
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (BuildContext context) {
-      return ResearchHomeScreen_2();
+      return ResearchHomeScreen_2(
+          titleText: titleTextController.text,
+          subTitleText: subTitleTextConroller.text,
+          dueDateText: dueDateTextController.text,
+          aboutConsumeText: aboutConsumeTimeTextController.text,
+          ageText: ageTextController.text,
+          detailContentText: detailContentTextController.text,
+          creditText: creditTextController.text,
+          selectedType: selectedType,
+          selectedOnOffType: selectedOnOffType);
     }));
   }
 }

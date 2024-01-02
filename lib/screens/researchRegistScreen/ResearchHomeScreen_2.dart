@@ -1,16 +1,41 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intermission_admin/Components/InputForms/CustomDropdownMenui.dart';
-import 'package:intermission_admin/Screens/ResearchRegistScreen/ResearchHomeScreen_2.dart';
+
 
 import '../../Components/Buttons/CustomIconBtn.dart';
 
 import '../../Components/InputForms/ContentInputForm.dart';
 
-import '../../Components/Buttons/CustomRearchRegisterBtn_2.dart';
+
 import '../../Components/InputForms/TitleInputForm.dart';
+import '../../components/Buttons/CustomRearchRegisterBtn_2.dart';
+import '../../components/CustomErrorDialog.dart';
+import '../../components/CustomSuccessDialog.dart';
 
 class ResearchHomeScreen_2 extends StatefulWidget {
-  const ResearchHomeScreen_2({Key? key}) : super(key: key);
+  final String titleText;
+  final String subTitleText;
+  final String dueDateText;
+  final String aboutConsumeText;
+  final String ageText;
+  final String detailContentText;
+  final String creditText;
+  final String selectedType;
+  final String selectedOnOffType;
+
+  const ResearchHomeScreen_2(
+      {required this.titleText,
+      required this.subTitleText,
+      required this.dueDateText,
+      required this.aboutConsumeText,
+      required this.ageText,
+      required this.detailContentText,
+      required this.creditText,
+      required this.selectedType,
+      required this.selectedOnOffType,
+      Key? key})
+      : super(key: key);
 
   @override
   State<ResearchHomeScreen_2> createState() => _ResearchHomeScreen_2State();
@@ -35,7 +60,15 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
 
   void initState() {
     super.initState();
-
+    print(widget.titleText);
+    print(widget.subTitleText);
+    print(widget.dueDateText);
+    print(widget.aboutConsumeText);
+    print(widget.ageText);
+    print(widget.detailContentText);
+    print(widget.creditText);
+    print(widget.selectedType);
+    print(widget.selectedOnOffType);
     clientJobEtcTextController.addListener(_updateState);
     clientNameTextController.addListener(_updateState);
     clientJobTextController.addListener(_updateState);
@@ -101,7 +134,8 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                         ],
                       ),
                       Text('2 / 2',
-                          style: TextStyle(fontSize: 20, color: Colors.grey[700]))
+                          style:
+                              TextStyle(fontSize: 20, color: Colors.grey[700]))
                     ],
                   ),
                 ),
@@ -382,7 +416,9 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                               });
                             },
                             child: Icon(
-                              checkboxValue1 ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+                              checkboxValue1
+                                  ? Icons.radio_button_checked
+                                  : Icons.radio_button_unchecked,
                               color: checkboxValue1 ? Colors.blue : Colors.grey,
                             ),
                           ),
@@ -427,10 +463,8 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 32,
-                ),
-                CustomResearchRegisterBtn(
+                const SizedBox(height: 32),
+                CustomResearchRegisterBtn2(
                   btnText: '등록',
                   onPressed: onPressed,
                   content1: clientNameTextController.text,
@@ -453,9 +487,25 @@ class _ResearchHomeScreen_2State extends State<ResearchHomeScreen_2> {
     );
   }
 
-  void onPressed() {
+  void onPressed() async{
     print(selectedGenderType);
     print(checkboxValue1);
+    Dio dio = Dio();
+    try {
+      final result = await dio.get(
+          'admin/notify',
+          data: {
+            "mainTitle": widget.titleText,
+            "detail" : widget.subTitleText,
+          }
+      );
+      CustomSuccessDialog(context);
+      print(result);
+    }
+    catch (e) {
+      CustomErrorDialog(context);
+      print(e);
+    }
     for (int i = 0; i < 2; i++) {
       Navigator.pop(context);
     }

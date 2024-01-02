@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intermission_admin/Constants/Color.dart';
 
-class CustomResearchRegisterBtn extends StatefulWidget {
+class CustomResearchRegisterBtn2 extends StatefulWidget {
   final String btnText;
   final VoidCallback onPressed;
   final String content1;
@@ -14,7 +14,7 @@ class CustomResearchRegisterBtn extends StatefulWidget {
   final String content7;
   final String content8;
 
-  CustomResearchRegisterBtn({
+  CustomResearchRegisterBtn2({
     required this.onPressed,
     required this.btnText,
     required this.content1,
@@ -33,7 +33,7 @@ class CustomResearchRegisterBtn extends StatefulWidget {
   _CustomRegisterBtnState createState() => _CustomRegisterBtnState();
 }
 
-class _CustomRegisterBtnState extends State<CustomResearchRegisterBtn> {
+class _CustomRegisterBtnState extends State<CustomResearchRegisterBtn2> {
   bool get _isValid =>
       widget.content1.isNotEmpty &&
           widget.content2.isNotEmpty &&

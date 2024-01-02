@@ -60,6 +60,7 @@ class _CustomRegisterBtnState extends State<CustomRegisterBtn> {
           }
       );
       CustomSuccessDialog(context);
+      print(result);
     }
     catch (e) {
       CustomErrorDialog(context);
